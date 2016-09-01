@@ -16,7 +16,7 @@ Installation
 ============
 
 1. Install Node and NPM if you have not done so already.
-2. Create an SQL database. [ElephantSQL](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html) makes this super easy.
+2. Create an SQL database. [ElephantSQL](https://www.elephantsql.com/) makes this super easy.
 3. Download this repository.
 4. Open a terminal window, and change to the top directory.
 5. Enter `npm install` at the command line.
