@@ -1,4 +1,4 @@
-let express = require('express'),
+var express = require('express'),
     app = express(),
     http = require('http'),
     server = http.Server(app),
@@ -17,7 +17,7 @@ function save(equation) {
             console.log(err);
         }
 
-        let query = client.query('INSERT INTO calc(text) values($1)', [equation]);
+        var query = client.query('INSERT INTO calc(text) values($1)', [equation]);
 
         query.on('end', function () {
             done();
@@ -35,7 +35,7 @@ app.get('/', function (request, response) {
 
 io.on('connection', function (socket) {
     socket.on('message', function (m) {
-        let clean = sanitizeHtml(m, {
+        var clean = sanitizeHtml(m, {
             allowedTags: [],
             allowedAttributes: []
         });
@@ -45,7 +45,7 @@ io.on('connection', function (socket) {
         }
 
         try {
-            let value = math.eval(m),
+            var value = math.eval(m),
                 equation = m + " = " + value;
             io.emit('message', equation);
             save(equation);
@@ -60,14 +60,14 @@ io.on('connection', function (socket) {
 
 
 app.get('/api/v1/calc', function (req, res) {
-    let results = [];
+    var results = [];
     pg.connect(connectionString, function (err, client, done) {
         if (err) {
             done();
             console.log(err);
             return res.status(500).json({success: false, data: err});
         }
-        let query = client.query('SELECT * FROM calc ORDER BY id DESC LIMIT 10;');
+        var query = client.query('SELECT * FROM calc ORDER BY id DESC LIMIT 10;');
 
         query.on('row', function (row) {
             results.push(row);
