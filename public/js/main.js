@@ -1,48 +1,48 @@
 $(document).ready(function() {
 
-		var numEquations = 0,
-			expr = $('#expr'),
-			resultList = $('#result-list'),
-			errorMessage = $('#error-message'),
-			dismissError = $('#dismiss'),
-			inputForm = $('form'),
-			socket = io();
-		
-		errorMessage.hide();
+        var numEquations = 0,
+            expr = $('#expr'),
+            resultList = $('#result-list'),
+            errorMessage = $('#error-message'),
+            dismissError = $('#dismiss'),
+            inputForm = $('form'),
+            socket = io();
 
-		$.get('/api/v1/calc', function(data) {
-			numEquations = data.length;
-			data.forEach(function (item) {
-				resultList.append(makeItem(item.text));
-			});
-		});
+        errorMessage.hide();
 
-		inputForm.submit(function() {
-			errorMessage.hide();
-			socket.emit('message', expr.val());
-			expr.val('');
-			return false;
-		});
+        $.get('/api/v1/calc', function(data) {
+            numEquations = data.length;
+            data.forEach(function (item) {
+                resultList.append(makeItem(item.text));
+            });
+        });
 
-		dismissError.click(function() {
-			errorMessage.hide();
-		});
+        inputForm.submit(function() {
+            errorMessage.hide();
+            socket.emit('message', expr.val());
+            expr.val('');
+            return false;
+        });
 
-		socket.on('message', function(equation) {
-			resultList.prepend(makeItem(equation));
+        dismissError.click(function() {
+            errorMessage.hide();
+        });
 
-			if (numEquations === 10) {
-				$('li').last().remove();
-			} else {
-				numEquations++;
-			}
-		});
+        socket.on('message', function(equation) {
+            resultList.prepend(makeItem(equation));
 
-		socket.on('err', function(msg) {
-			errorMessage.show();
-		});
+            if (numEquations === 10) {
+                $('li').last().remove();
+            } else {
+                numEquations++;
+            }
+        });
 
-		function makeItem(equation) {
-			return '<li class="list-group-item">' + equation + '</li>';
-		}
+        socket.on('err', function(msg) {
+            errorMessage.show();
+        });
+
+        function makeItem(equation) {
+            return '<li class="list-group-item">' + equation + '</li>';
+        }
 });
