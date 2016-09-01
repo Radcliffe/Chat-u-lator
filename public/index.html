@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Chat-u-lator</title>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+        <script src="js/main.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <style>
+            .jumbotron {
+                background-color: #6f5499;
+                color: white;
+            }
+            .footer {
+                background-color: #f5f5f5;
+            }
+
+        </style>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        
+        <div class="container theme-showcase" role="main">
+        <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+            <div class="jumbotron">
+                <h1>Chat-u-lator</h1>
+                <p>Social calculation for the sharing generation.</p>
+            </div>
+
+            <div id="user-input">
+                <form action="">
+                    <input id="expr" type="text" placeholder="Type math here..." size="40">
+                    &nbsp;
+                    <button type="button" class="btn btn-primary"> = </button>
+                </form>
+            </div>
+
+            <div id="error-message" class="alert alert-danger">
+                <button id="dismiss" type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <p><strong>Error!</strong> Unable to evaluate expression.</p>
+            </div>
+
+            <br>
+
+            <div id="results">
+                <ul id="result-list" class="list-group">
+                </ul>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted">Made with <span style="color:red">&#x2764;</span> by David Radcliffe
+                using Node.js, Express.js, math.js, socket.io, jQuery,  Bootstrap, and ElephantSQL.</p>
+            </div>
+        </footer>
+    </body>
+</html>
