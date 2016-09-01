@@ -3,7 +3,7 @@ What is this?
 
 The Chat-u-lator is a web-based multi-user calculator. The results of the last 10 calculations
 are shown in reverse chronological order. The results are shown to all users and
-displayed in realtime. The Chat-u-lator utilizes the math.js library to perform calculations.
+displayed in realtime. The Chat-u-lator utilizes the [math.js](http://mathjs.org/) library to perform calculations.
 
 What is it for?
 ===============
@@ -15,7 +15,7 @@ Please feel free to use as a foundation for your own projects.
 Installation
 ============
 
-1. Install Node and NPM if you have not done so already.
+1. Install [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) if you have not done so already.
 2. Create an SQL database. [ElephantSQL](https://www.elephantsql.com/) makes this super easy.
 3. Download this repository.
 4. Open a terminal window, and change to the top directory.
@@ -33,3 +33,4 @@ Deployment
 
 I deployed this application on Amazon Elastic Beanstalk at http://tiny.cc/chatulator.
 I recommend using the [command line interface](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html).
+I will not include detailed instructions, but if I can figure it out, then you can too. I believe in you!!!
