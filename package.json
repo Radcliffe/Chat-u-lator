@@ -10,7 +10,7 @@
     "npm": "^9.1.1",
     "pg": "^6.1.0",
     "sanitize-html": "^2.3.3",
-    "socket.io": "^4.0.2"
+    "socket.io": "^4.5.3"
   },
   "scripts": {
     "start": "node server.js"
