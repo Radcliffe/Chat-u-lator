@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "multi-user calculator using socket.io",
   "dependencies": {
-    "body-parser": "^1.20.1",
-    "express": "^4.19.2",
+    "body-parser": "^1.20.3",
+    "express": "^4.21.1",
     "install": "^0.13.0",
     "mathjs": "^11.5.1",
     "npm": "^9.7.2",
